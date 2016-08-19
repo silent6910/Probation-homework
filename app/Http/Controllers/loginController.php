@@ -3,23 +3,17 @@ namespace App\Http\Controllers;
 
 use DB;
 use App\Http\Controllers;
-use App\member;
+use App\Member\Services\Member_Services as member;
 use App\login;
 
 class loginController extends Controller
 {
-    /**
-     * Show the profile for the given user.
-     *
-     * @param  int  $id
-     * @return Response
-     * member_data
-     */
 
-    function __construct()
+
+    function __construct(member $member,login $login)
     {
-        $this->member=new member;
-        $this->login=new login;
+        $this->member=$member;
+        $this->login=$login;
     }
     public function login()
     {
