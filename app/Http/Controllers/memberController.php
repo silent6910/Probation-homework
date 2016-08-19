@@ -3,22 +3,16 @@ namespace App\Http\Controllers;
 
 use DB;
 use App\Http\Controllers;
-use App\member;
-use App\wallet;
+use App\Member\Services\Member_Services as member;
+use App\Wallet\Services\Wallet_Services as wallet;
 class memberController extends Controller
 {
-    /**
-     * Show the profile for the given user.
-     *
-     * @param  int  $id
-     * @return Response
-     * member_data
-     */
 
-    function __construct()
+
+    function __construct(member $member,wallet $wallet)
     {
-        $this->DB=new member;
-        $this->wallet=new wallet;
+        $this->DB=$member;
+        $this->wallet=$wallet;
     }
 
 
