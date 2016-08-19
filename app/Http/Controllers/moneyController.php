@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers;
 use App\money_record\Repositories\money_record as money_record;
-use App\wallet;
+use App\Wallet\Services\Wallet_Services as wallet;
 
 
 
