@@ -7,13 +7,7 @@ use App\logout;
 
 class logoutController extends Controller
 {
-    /**
-     * Show the profile for the given user.
-     *
-     * @param  int  $id
-     * @return Response
-     * member_data
-     */
+
 
     function __construct()
     {
