@@ -11,15 +11,21 @@
 |
 */
 
+$app->group(['prefix' => 'member'], function () use ($app) {
+    $app->post('increase', 'App\Http\Controllers\memberController@increase');
+    $app->post('modify', 'App\Http\Controllers\memberController@modify');
+    $app->post('delete', 'App\Http\Controllers\memberController@delete');
+});
 
-$app->post('member/increase','memberController@increase');
-$app->post('member/modify','memberController@modify');
-$app->post('member/delete','memberController@delete');
-$app->post('login','loginController@login');
-$app->post('logout','logoutController@logout');
-$app->post('money/action','moneyController@action');
-$app->post('money/record','moneyController@record');
-$app->post('money/test','moneyController@test');
+$app->post('login', 'loginController@login');
+$app->post('logout', 'logoutController@logout');
+$app->group(['prefix' => 'money'], function () use ($app) {
+    $app->post('action','App\Http\Controllers\moneyController@action');
+    $app->post('record','App\Http\Controllers\moneyController@record');
+    $app->post('test','App\Http\Controllers\moneyController@test');
+});
+
+
 
 //$app->post('{param}/{param2}',$param.'Controller@'.$param2);  將網址當作參數路由至該function
 /*$app->post('{param}/{param2}',[        將網址參數帶到function當作參數
