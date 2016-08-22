@@ -6,10 +6,18 @@ use App\Http\Controllers;
 use App\Member\Services\Member_Services as member;
 use App\Wallet\Services\Wallet_Services as wallet;
 
+/**
+ * Class memberController
+ * @package App\Http\Controllers
+ */
 class memberController extends Controller
 {
 
-
+    /**
+     * memberController constructor.
+     * @param member $member
+     * @param wallet $wallet
+     */
     public function __construct(member $member, wallet $wallet)
     {
         $this->DB=$member;
@@ -17,6 +25,9 @@ class memberController extends Controller
     }
 
 
+    /**
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function increase()  //創建帳號與錢包
     {
         if (!isset($_POST['Account'])||!isset($_POST['Password'])) {
@@ -29,6 +40,10 @@ class memberController extends Controller
              response()->json("error")
             :response()->json("true");
     }
+
+    /**
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function modify()  //修改密碼
     {
         if (!isset($_POST['Account'])||!isset($_POST['Password'])) {
@@ -38,6 +53,10 @@ class memberController extends Controller
              response()->json("no Account or password same")
             :response()->json("true");
     }
+
+    /**
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function delete()  //刪除帳號與錢包
     {
         if (!isset($_POST['Account'])) {
