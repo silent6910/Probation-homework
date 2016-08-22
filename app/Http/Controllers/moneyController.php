@@ -10,9 +10,9 @@ class moneyController extends Controller
 {
 
 
-    public function __construct(wallet $wallet)
+    public function __construct(wallet $wallet,money_record $money_record)
     {
-        $this->record=new money_record;
+        $this->record=$money_record;
         $this->wallet=$wallet;
     }
     public function action()  //存提款  $this->record->record()是寫入紀錄的動作
