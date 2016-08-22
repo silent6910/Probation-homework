@@ -14,9 +14,9 @@ class login extends Model
     protected $table = 'login_record';
     public $timestamps = false;
 
-    function record()
+    public function record()
     {
         date_default_timezone_set('Asia/Taipei');
-        return $this->insert(['Account'=>$_POST['Account'],'time'=>date("Y/m/d H:i:s")]);
+        return $this->insert(['Account'=>$_POST['Account'], 'time'=>date("Y/m/d H:i:s")]);
     }
 }

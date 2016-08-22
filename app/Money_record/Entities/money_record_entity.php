@@ -9,5 +9,4 @@ class money_record_entity extends Model
 
     protected $table = 'money_record';
     public $timestamps = false;
-
 }

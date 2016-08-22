@@ -10,20 +10,21 @@ class loginController extends Controller
 {
 
 
-    function __construct(member $member,login $login)
+    public function __construct(member $member, login $login)
     {
         $this->member=$member;
         $this->login=$login;
     }
     public function login()
     {
-        if(count($this->member->login())>0) {
-            if ($this->login->record() > 0)
+        if (count($this->member->login())>0) {
+            if ($this->login->record() > 0) {
                 return response()->json("true");
-            else
+            } else {
                 return response()->json("record failed");
-        }
-        else
+            }
+        } else {
             return response()->json("login failed");
+        }
     }
 }

@@ -16,5 +16,3 @@ class TestController extends Controller
         echo "測試成功";
     }
 }
-
-

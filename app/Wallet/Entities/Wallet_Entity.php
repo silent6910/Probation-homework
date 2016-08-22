@@ -9,5 +9,4 @@ class Wallet_Entity extends Model
 
     protected $table = 'wallet';
     public $timestamps = false;
-
 }

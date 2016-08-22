@@ -6,25 +6,24 @@ use App\Member\Entities\Member_Entity;
 
 class Member_Services
 {
-    function verify()
+    public function verify()
     {
-        return Member_Entity::where('Account',$_POST['Account'])->get();
+        return Member_Entity::where('Account', $_POST['Account'])->get();
     }
-    function increase()
+    public function increase()
     {
-        return Member_Entity::insert(['Account'=>$_POST['Account'],'Password'=>md5($_POST['Password'])]);
+        return Member_Entity::insert(['Account'=>$_POST['Account'], 'Password'=>md5($_POST['Password'])]);
     }
-    function modify()
+    public function modify()
     {
-        return Member_Entity::where('Account',$_POST['Account'])->update(['Password'=>md5($_POST['Password'])]);
+        return Member_Entity::where('Account', $_POST['Account'])->update(['Password'=>md5($_POST['Password'])]);
     }
-    function delete()
+    public function delete()
     {
-        return Member_Entity::where('Account','=',$_POST['Account'])->delete();
+        return Member_Entity::where('Account', '=', $_POST['Account'])->delete();
     }
-    function login()
+    public function login()
     {
-        return Member_Entity::where('Account',$_POST['Account'])->where('Password',md5($_POST['Password']))->get();
+        return Member_Entity::where('Account', $_POST['Account'])->where('Password', md5($_POST['Password']))->get();
     }
-
 }

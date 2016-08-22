@@ -9,16 +9,16 @@ class logoutController extends Controller
 {
 
 
-    function __construct()
+    public function __construct()
     {
         $this->DB=new logout;
     }
     public function logout()
     {
-        if($this->DB->record()>0)
+        if ($this->DB->record()>0) {
             return response()->json("true");
-        else
+        } else {
             return response()->json("record failed");
-
+        }
     }
 }
