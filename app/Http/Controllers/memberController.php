@@ -30,11 +30,15 @@ class memberController extends Controller
      */
     public function increase()  //創建帳號與錢包
     {
+        $headers = array(
+            'Content-Type' => 'application/json; charset=utf-8'
+        );
+
         if (!isset($_POST['Account'])||!isset($_POST['Password'])) {
             return  response()->json("fasle");
         }
         if (count($this->DB->verify())>0) {      //先驗證是否帳號已重複
-            return response()->json("repeat");
+            return response()->json("你好",200,$headers,JSON_UNESCAPED_UNICODE);
         }
         return($this->DB->increase()==0 || $this->wallet->create_wallet()==0)?  //創建帳號且創建「錢包」
              response()->json("error")
